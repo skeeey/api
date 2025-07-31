@@ -511,6 +511,16 @@ spec:
                       The value(x) should be: 5s <= x <= 1h.
                     pattern: ^([0-9]+(s|m|h))+$
                     type: string
+                  workloadSourceDriver:
+                    default: kube
+                    description: WorkloadSourceDriver specifies the driver used to
+                      transmit ManifestWorks between the hub and managed clusters.
+                    enum:
+                    - kube
+                    - grpc
+                    type: string
+                required:
+                - workloadSourceDriver
                 type: object
               workImagePullSpec:
                 description: |-

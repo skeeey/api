@@ -320,6 +320,12 @@ type WorkAgentConfiguration struct {
 	// +kubebuilder:validation:Type=string
 	// +kubebuilder:validation:Pattern="^([0-9]+(s|m|h))+$"
 	StatusSyncInterval *metav1.Duration `json:"statusSyncInterval,omitempty"`
+
+	// WorkloadSourceDriver specifies the driver used to transmit ManifestWorks between the hub and managed clusters.
+	// +required
+	// +kubebuilder:default:=kube
+	// +kubebuilder:validation:Enum=kube;grpc
+	WorkloadSourceDriver string `json:"workloadSourceDriver"`
 }
 
 const (
